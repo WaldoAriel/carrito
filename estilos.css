@@ -3,8 +3,6 @@
     padding: 0;
 }
 
-
-
 html, body {
     height: 100%;
 }
@@ -13,18 +11,19 @@ body {
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: rgb(140, 200, 60)
+    background-color: rgb(140, 200, 60);
 }
 
 .logoCarrito {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform:translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     max-height: 185px;
-    z-index:1;
+    z-index: 1;
     filter: drop-shadow(2px 6px 20px rgb(50, 20, 20));
 }
+
 header {
     background-color: rgb(160, 40, 10);
     height: 280px;
@@ -52,12 +51,16 @@ header {
 }
 
 main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     flex: 1;
     margin-top: 280px;
-    margin-bottom: 140px;
+    padding-bottom: 80px;
 }
 
 .tarjeta {
+    min-width: 500px;
     display: flex;
     background-color: white;
     height: 150px;
@@ -112,6 +115,39 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
+
+@media (max-width: 600px) {
+    .tarjeta {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        margin: 10px 20px;
+    }
+
+    .producto {
+        width: 70%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+        margin-right: 0;
+        box-shadow: #4d4d4d 0px 6px 20px;
+    }
+
+    .info {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .restar, .sumar {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+    }
+
+    .muestraCantidad {
+        font-size: 16px;
+    }
+    
+}
