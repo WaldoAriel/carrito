@@ -74,7 +74,6 @@ main {
     border-radius: 15px 0 0 15px;
     margin-right: 20px;
     box-shadow: #4d4d4d 6px 0px 20px;
-    overflow: hidden;
 }
 
 .restar, .sumar {
@@ -122,17 +121,16 @@ footer {
     .tarjeta {
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         height: auto;
         margin: 10px 20px;
     }
 
     .producto {
-        width: 70%;
         height: auto;
-        object-fit: cover;
+        box-shadow: #4d4d4d 0px 6px 20px;
         border-radius: 15px 15px 0 0;
         margin-right: 0;
-        box-shadow: #4d4d4d 0px 6px 20px;
     }
 
     .info {
