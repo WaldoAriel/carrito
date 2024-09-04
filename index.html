@@ -9,13 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/img/icono.svg" type="image/x-icon">
-    <title>Document</title>
+    <title>Carrito Verdulería</title>
 </head>
 <body>
     <header>
         <img class="logoCarrito" src="./assets/img/logoCARRITO.png" height="200px"  alt="logo">
         <div class="barraCarrito">
             <img class="carritoIcono" src="./assets/img/CARRITO.svg" alt="carrito">
+            <div id="resumenCarrito">
+                Total Producto: <span id="totalProducto">0</span> | Total Precio: $<span id="totalPrecio">0.00</span>
+            </div>
         </div>
     </header>
     <main>
@@ -27,10 +30,10 @@
                 <h4>PRODUCTO PREMIUM!</h4>
                 <h5>Precio: $1050 el kilo</h5>
                 <div class="selector">
-                    <p>Agregar al carrito!</p>
                     <button class="restar">-</button>
                     <span class="muestraCantidad">1</span>
                     <button class="sumar">+</button>
+                    <button class="agregar-al-carrito" data-precio="1050">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -41,10 +44,10 @@
                 <h4>PRODUCTO IMPORTADO</h4>
                 <h5>Precio: $1050 el kilo</h5>
                 <div class="selector">
-                    <p>Agregar al carrito!</p>
                     <button class="restar">-</button>
                     <span class="muestraCantidad">1</span>
                     <button class="sumar">+</button>
+                    <button class="agregar-al-carrito" data-precio="1050">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -55,10 +58,10 @@
                 <h4>LA MEJOR OPCIÓN!</h4>
                 <h5>Precio: $1050 el kilo</h5>
                 <div class="selector">
-                    <p>Agregar al carrito!</p>
                     <button class="restar">-</button>
                     <span class="muestraCantidad">1</span>
                     <button class="sumar">+</button>
+                    <button class="agregar-al-carrito" data-precio="1050">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -69,10 +72,10 @@
                 <h4>PRODUCTO PREMIUM!</h4>
                 <h5>Precio: $1050 el kilo</h5>
                 <div class="selector">
-                    <p>Agregar al carrito!</p>
                     <button class="restar">-</button>
                     <span class="muestraCantidad">1</span>
                     <button class="sumar">+</button>
+                    <button class="agregar-al-carrito" data-precio="1050">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -83,10 +86,10 @@
                 <h4>PRODUCTO PREMIUM!</h4>
                 <h5>Precio: $1050 el kilo</h5>
                 <div class="selector">
-                    <p>Agregar al carrito!</p>
                     <button class="restar">-</button>
                     <span class="muestraCantidad">1</span>
                     <button class="sumar">+</button>
+                    <button class="agregar-al-carrito" data-precio="1050">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -97,16 +100,25 @@
                 <h4>PRODUCTO PREMIUM!</h4>
                 <h5>Precio: $1050 el kilo</h5>
                 <div class="selector">
-                    <p>Agregar al carrito!</p>
                     <button class="restar">-</button>
                     <span class="muestraCantidad">1</span>
                     <button class="sumar">+</button>
+                    <button class="agregar-al-carrito" data-precio="1050">Agregar al carrito</button>
                 </div>
             </div>
+            
         </div>
     </main>
+    <div id="carritoModal" class="modal">
+        <div class="modal-content">
+            <span id="cerrarModal" class="close-button">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="carritoContenido"></div>
+            <p>Total de la compra: $<span id="totalCompra">0.00</span></p>
+        </div>
+    </div>
     <footer>
-        <h6>Jaime Davalos 284, X5196 Santa Rosa de Calamuchita, Córdoba</h6>
+        <h6>Jaime Davalos 284, Santa Rosa de Calamuchita, Córdoba</h6>
     </footer>
     <script src="script.js"></script>
 </body>
