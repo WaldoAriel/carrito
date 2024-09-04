@@ -23,8 +23,6 @@ class SelectorProducto {
     }
 }
 
-// ... (mantener la clase SelectorProducto sin cambios)
-
 // Seleccionar los elementos del DOM relacionados con el carrito y el modal
 const totalProductoElement = document.getElementById('totalProducto');
 const totalPrecioElement = document.getElementById('totalPrecio');
