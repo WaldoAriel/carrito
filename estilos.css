@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  color: #333333;
 }
 
 html, body {
@@ -117,6 +118,24 @@ main {
   background-color: rgb(10, 120, 90);
 }
 
+.btnPagar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btnPagar:hover {
+  background-color: #45a049;
+}
+
 footer {
   position: fixed;
   background-color: rgb(0, 100, 75);
@@ -129,7 +148,11 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
+.btnsFinal{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+}
 .modal {
   display: none;
   position: fixed;
@@ -143,7 +166,7 @@ footer {
   backdrop-filter: blur(10px);
 }
 
-.modal-content {
+.contenidoModal {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -151,20 +174,20 @@ footer {
   width: 30%;
 }
 
-.close-button {
+.btnCierre {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close-button:hover,
+.btnCierre:hover,
 .close-button:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
-.modal-content {
+.contenidoModal {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -193,11 +216,19 @@ footer {
   flex-grow: 1;
 }
 
+.eliminar-item{
+  background-color: rgb(160, 40, 10);
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+}
+
 #vaciarCarrito {
   background-color: rgb(160, 40, 10);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -241,7 +272,7 @@ footer {
   .muestraCantidad {
       font-size: 16px;
   }
-  .modal-content {
+  .contenidoModal {
           width: 90%;
           margin: 10% auto;
   }

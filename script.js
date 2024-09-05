@@ -52,29 +52,39 @@ function agregarAlCarrito(producto, cantidad) {
 }
 
 // Función para actualizar la UI del carrito
-        function actualizarCarrito() {
-            const totalProductos = carrito.reduce((total, item) => total + item.cantidad, 0);
-            totalProductoElement.textContent = totalProductos;
-            totalPrecioElement.textContent = totalPrecio.toFixed(2);
+function actualizarCarrito() {
+    const totalProductos = carrito.reduce((total, item) => total + item.cantidad, 0);
+    totalProductoElement.textContent = totalProductos;
+    totalPrecioElement.textContent = totalPrecio.toFixed(2);
 
-            carritoContenido.innerHTML = '';
-            carrito.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.classList.add('carrito-item');
-                itemElement.innerHTML = `
-                    <img src="${item.imagen}" alt="${item.nombre}" class="carrito-item-imagen">
-                    <div class="carrito-item-detalles">
-                        <p>${item.nombre}</p>
-                        <p>${item.cantidad} x $${item.precio.toFixed(2)}</p>
-                    </div>
-                    <button class="eliminar-item" data-id="${item.id}">Eliminar</button>
-                `;
-                carritoContenido.appendChild(itemElement);
-            });
-            
-// Actualizar el total de la compra en el modal
+    carritoContenido.innerHTML = '';
+    carrito.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('carrito-item');
+        itemElement.innerHTML = `
+            <img src="${item.imagen}" alt="${item.nombre}" class="carrito-item-imagen">
+            <div class="carrito-item-detalles">
+                <p>${item.nombre}</p>
+                <p>${item.cantidad} x $${item.precio.toFixed(2)}</p>
+            </div>
+            <button class="eliminar-item" data-id="${item.id}">Eliminar</button>
+        `;
+        carritoContenido.appendChild(itemElement);
+    });
+    
+    // Actualizar el total de la compra en el modal
     totalCompraElement.textContent = totalPrecio.toFixed(2);
-    }
+
+    // Agregar eventos a los botones de eliminar
+    const botonesEliminar = carritoContenido.querySelectorAll('.eliminar-item');
+    botonesEliminar.forEach(boton => {
+        boton.addEventListener('click', (e) => {
+            const productoId = parseInt(e.target.dataset.id);
+            eliminarDelCarrito(productoId);
+        });
+    });
+}
+
 // Función para vaciar el carrito
 function vaciarCarrito() {
     carrito = [];
@@ -92,14 +102,7 @@ function eliminarDelCarrito(productoId) {
         actualizarCarrito();
     }
 }
-// Agregar eventos a los botones de eliminar
-const botonesEliminar = carritoContenido.querySelectorAll('.eliminar-item');
-botonesEliminar.forEach(boton => {
-    boton.addEventListener('click', (e) => {
-        const productoId = parseInt(e.target.dataset.id);
-        eliminarDelCarrito(productoId);
-    });
-});
+
 // Agregar un escuchador al ícono del carrito para que abra cuando se hace click
 const carritoIcono = document.getElementById('carritoIcono');
 
@@ -135,16 +138,38 @@ botonesAgregar.forEach((boton, index) => {
         const producto = {
             id: index,
             nombre: tarjeta.querySelector('h3').textContent,
-            precio: parseFloat(boton.dataset.precio),
+            precio: parseFloat(tarjeta.querySelector('h5').textContent.replace('Precio: $', '')),
             imagen: tarjeta.querySelector('.producto').src
         };
         const cantidad = parseInt(tarjeta.querySelector('.muestraCantidad').textContent);
         agregarAlCarrito(producto, cantidad);
     });
 });
+
+// Función para simular el procesamiento del pago
+function simularProcesarPago() {
+    if (carrito.length === 0) {
+        alert('El carrito está vacío. Agrega productos antes de procesar el pago.');
+        return;
+    }
+    
+    alert('Redirigiendo a MercadoPago...');
+    
+    // Simulamos una compra
+    carrito = [];
+    totalPrecio = 0;
+    actualizarCarrito();
+    cerrarCarritoModal();
+};
+
 // Agregar evento de clic al botón de cerrar el modal
 cerrarModalBtn.addEventListener('click', cerrarCarritoModal);
 
 // Agregar evento de clic al botón de vaciar el carrito
 const vaciarCarritoBtn = document.getElementById('vaciarCarrito');
 vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+
+// Agregar evento de clic al botón de procesar pago
+const procesarPagoBtn = document.getElementById('procesarPago');
+procesarPagoBtn.addEventListener('click', simularProcesarPago);
+
