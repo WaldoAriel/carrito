@@ -15,7 +15,7 @@
     <header>
         <img class="logoCarrito" src="./assets/img/logoCARRITO.png" height="200px"  alt="logo">
         <div class="barraCarrito">
-            <img class="carritoIcono" src="./assets/img/CARRITO.svg" alt="carrito">
+            <img class="carritoIcono" id="carritoIcono" src="./assets/img/CARRITO.svg" alt="carrito">
             <div id="resumenCarrito">
                 Total Producto: <span id="totalProducto">0</span> | Total Precio: $<span id="totalPrecio">0.00</span>
             </div>
@@ -138,12 +138,15 @@
 
     </main>
     <div id="carritoModal" class="modal">
-        <div class="modal-content">
-            <span id="cerrarModal" class="close-button">&times;</span>
-            <h2>Carrito de Compras</h2>
-            <div id="carritoContenido"></div>
-            <p>Total de la compra: $<span id="totalCompra">0.00</span></p>
+      <div class="modal-content">
+        <span id="cerrarModal" class="close-button">&times;</span>
+        <h2>Carrito de Compras</h2>
+        <div id="carritoContenido">
+          <!-- Los items del carrito se insertarán aquí dinámicamente -->
         </div>
+        <p>Total de la compra: $<span id="totalCompra">0.00</span></p>
+        <button id="vaciarCarrito">Vaciar Carrito</button>
+      </div>
     </div>
     <footer>
         <h6>Jaime Davalos 284, Santa Rosa de Calamuchita, Córdoba</h6>
